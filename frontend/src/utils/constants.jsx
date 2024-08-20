@@ -3,7 +3,7 @@ export const SMALL_SIZE = "https://image.tmdb.org/t/p/w500/";
 
 export const MOVIE_CATEGORIES = [
     "now_playing",
-    "top_reated",
+    "top_rated",
     "popular",
     "upcoming",
 ];

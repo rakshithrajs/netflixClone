@@ -8,9 +8,9 @@ import { Toaster } from "react-hot-toast";
 import HomePage from "./pages/homePage.jsx";
 import SignupPage from "./pages/signupPage.jsx";
 import LoginPage from "./pages/loginPage.jsx";
+import WatchPage from "./pages/watchPage.jsx";
 import { Footer } from "./components/footer.jsx";
 import { AuthContextProvider } from "./context/authContext.jsx";
-import Navbar from "./components/navbar.jsx";
 import { ContentProvider } from "./context/useContent.jsx";
 
 const App = () => {

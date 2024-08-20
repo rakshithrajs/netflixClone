@@ -11,14 +11,26 @@ import {
 import Loader from "../../components/loader.jsx";
 import { useContent } from "../../context/useContent.jsx";
 import MovieSlider from "../../components/movieSlider.jsx";
-import TVSlider from "../../components/TVSlider.jsx";
 
 const Home = () => {
     const [imgLoading, setImgLoading] = useState(true);
     const { trendingContent } = useTrendingContent();
     const { contentType } = useContent();
 
-    if (!trendingContent) return <Loader />;
+    if (!trendingContent)
+        return (
+            <>
+                <div className="h-screen text-white relative">
+                    <Navbar />
+                    <div
+                        className="absolute top-1/2 left-1/2 -translate-x-
+            1/2 -translate-y-1/2"
+                    >
+                        <Loader />
+                    </div>
+                </div>
+            </>
+        );
 
     return (
         <>
@@ -89,7 +101,7 @@ const Home = () => {
                           <MovieSlider key={cat} category={cat} />
                       ))
                     : TV_CATEGORIES.map((cat) => (
-                          <TVSlider key={cat} category={cat} />
+                          <MovieSlider key={cat} category={cat} />
                       ))}
             </div>
         </>
