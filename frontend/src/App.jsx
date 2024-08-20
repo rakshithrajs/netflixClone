@@ -8,10 +8,11 @@ import { Toaster } from "react-hot-toast";
 import HomePage from "./pages/homePage.jsx";
 import SignupPage from "./pages/signupPage.jsx";
 import LoginPage from "./pages/loginPage.jsx";
-import WatchPage from "./pages/watchPage.jsx";
+import ContentDetails from "./pages/contentDetails.jsx";
 import { Footer } from "./components/footer.jsx";
 import { AuthContextProvider } from "./context/authContext.jsx";
 import { ContentProvider } from "./context/useContent.jsx";
+import Navbar from "./components/navbar.jsx";
 
 const App = () => {
     const user = false;
@@ -31,6 +32,15 @@ const App = () => {
         {
             path: "/login",
             element: <>{!user ? <LoginPage /> : <Navigate to="/" />}</>,
+        },
+        {
+            path: "/watch/:id",
+            element: (
+                <>
+                    <Navbar />
+                    {!user ? <ContentDetails /> : <Navigate to="/" />}
+                </>
+            ),
         },
     ]);
     return (

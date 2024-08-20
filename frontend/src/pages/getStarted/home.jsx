@@ -97,11 +97,11 @@ const Home = () => {
             </div>
             <div className="fles flex-col gap-10 bg-black py-10 text-white">
                 {contentType === "movie"
-                    ? MOVIE_CATEGORIES.map((cat) => (
-                          <MovieSlider key={cat} category={cat} />
+                    ? MOVIE_CATEGORIES.map((cat, index) => (
+                          <MovieSlider key={index} category={cat} />
                       ))
-                    : TV_CATEGORIES.map((cat) => (
-                          <MovieSlider key={cat} category={cat} />
+                    : TV_CATEGORIES.map((cat, index) => (
+                          <MovieSlider key={index} category={cat} />
                       ))}
             </div>
         </>

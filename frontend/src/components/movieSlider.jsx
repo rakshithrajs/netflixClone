@@ -5,7 +5,7 @@ import { SMALL_SIZE } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const MovieSlider = ({ category }) => {
+const MovieSlider = ({ category, key }) => {
     const { contentType } = useContent();
     const [content, setContent] = useState([]);
     const [ShowArrow, setShowArrow] = useState(false);
@@ -17,7 +17,6 @@ const MovieSlider = ({ category }) => {
                     `/movie&tv/${contentType}/${category}`
                 );
                 setContent(response.data.content);
-                console.log(response);
             } catch (error) {
                 console.log(error);
             }
@@ -50,6 +49,7 @@ const MovieSlider = ({ category }) => {
             className="bg-black relative px-5 md:px-20"
             onMouseEnter={() => setShowArrow(true)}
             onMouseLeave={() => setShowArrow(false)}
+            key={key}
         >
             <h2 className="mb-4 text-2xl font-bold">
                 {categoryName} {contType}

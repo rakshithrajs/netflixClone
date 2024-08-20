@@ -28,7 +28,13 @@ const Navbar = () => {
                 </Link>
                 {user && (
                     <div className="hidden sm:flex gap-[2vw] items-center">
-                        <Link to="/" className="hover:underline">
+                        <Link
+                            to="/"
+                            className="hover:underline"
+                            onClick={() => {
+                                setContent("movie");
+                            }}
+                        >
                             Home
                         </Link>
                         <Link
