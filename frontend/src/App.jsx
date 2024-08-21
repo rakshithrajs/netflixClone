@@ -13,6 +13,7 @@ import { Footer } from "./components/footer.jsx";
 import { AuthContextProvider } from "./context/authContext.jsx";
 import { ContentProvider } from "./context/useContent.jsx";
 import Navbar from "./components/navbar.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
 
 const App = () => {
     const user = false;
@@ -39,6 +40,15 @@ const App = () => {
                 <>
                     <Navbar />
                     {!user ? <ContentDetails /> : <Navigate to="/" />}
+                </>
+            ),
+        },
+        {
+            path: "/search",
+            element: (
+                <>
+                    <Navbar />
+                    {!user ? <SearchPage /> : <Navigate to="/" />}
                 </>
             ),
         },
