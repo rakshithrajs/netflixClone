@@ -93,16 +93,22 @@ export const searchHistory = async (req, res) => {
 
 export const deleteHistory = async (req, res) => {
     try {
-        const { id } = req.params;
-        const data = await User.findByIdAndUpdate(req.user._id, {
-            $pull: {
-                searchHistory: { id: parseInt(id) },
-            },
-        });
+        const id = req.params.id;
+        const user = await User.findById(req.user._id);
+        if (!user) {
+            return res
+                .status(404)
+                .json({ success: false, message: "User not found" });
+        }
+        const newSearchHistory = user.searchHistory.filter(
+            (item) => item.id !== parseInt(id)
+        );
+        user.searchHistory = newSearchHistory;
+        await user.save();
         res.status(200).json({
             success: true,
             message: "History deleted",
-            data: data,
+            data: user.searchHistory,
         });
     } catch (error) {
         console.error(error);

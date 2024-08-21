@@ -14,6 +14,7 @@ import { AuthContextProvider } from "./context/authContext.jsx";
 import { ContentProvider } from "./context/useContent.jsx";
 import Navbar from "./components/navbar.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
+import HistoryPage from "./pages/HistoryPage.jsx";
 
 const App = () => {
     const user = false;
@@ -49,6 +50,15 @@ const App = () => {
                 <>
                     <Navbar />
                     {!user ? <SearchPage /> : <Navigate to="/" />}
+                </>
+            ),
+        },
+        {
+            path: "/history/",
+            element: (
+                <>
+                    <Navbar />
+                    {user ? <Navigate to="/" /> : <HistoryPage />}
                 </>
             ),
         },
